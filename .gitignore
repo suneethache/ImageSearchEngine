@@ -7,3 +7,4 @@ env/
 *.npz
 *.npy
 faiss_index
+test.py
