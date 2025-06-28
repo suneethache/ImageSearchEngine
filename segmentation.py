@@ -29,7 +29,7 @@ prompt_map = {
 
 
 # Define the dataset root directory (change this to your actual dataset path)
-dataset_root = Path("data/train/image/")
+dataset_root = Path("data/train/images/")
 
 # Define output directory for segmentation results
 output_root = Path("data/train/output_masks")
