@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+uploads/
+masks/
+data/
+env/
+*.npz
+*.npy
+faiss_index

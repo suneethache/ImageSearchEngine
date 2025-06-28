@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  fastapi-app:
+    build: .
+    container_name: bigcat_search_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./uploads:/app/uploads
+      - ./masks:/app/masks
+      - ./data/train/embeddings:/app/data/train/embeddings
+      - ./data/train/index:/app/data/train/index
+      - ./data/train/mapping:/app/data/train/mapping
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
