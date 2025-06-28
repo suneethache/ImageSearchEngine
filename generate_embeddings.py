@@ -1,3 +1,4 @@
+""" Generated the embeddings of segmented masks and saves the embeddings"""
 from pathlib import Path
 from PIL import Image
 import numpy as np
@@ -21,9 +22,6 @@ embeddings = {}
 valid_exts = {'.jpg', '.jpeg', '.png'}
 threshold = 0.08
 
-print("everything is good")
-"""
-
 for class_dir in dataset_root.iterdir():
     if not class_dir.is_dir():
         continue
@@ -45,7 +43,7 @@ for class_dir in dataset_root.iterdir():
         masked   = (img_arr * mask_bin).astype(np.uint8)
         masked_img = Image.fromarray(masked)
 
-        # Embed
+        # Embeddings
         inputs = processor(images=masked_img, return_tensors="pt").to(device)
         with torch.no_grad():
             feats = model.get_image_features(**inputs)
@@ -54,8 +52,7 @@ for class_dir in dataset_root.iterdir():
         embeddings[img_path.stem] = feats.cpu().numpy().squeeze(0)
         print(f"→ {img_path.name}")
 
-# Save
+# Saving the embeddings
 out_file = output_dir / "masked_clip_embeddings.npz"
 np.savez_compressed(out_file, **embeddings)
 print(f"Saved {len(embeddings)} embeddings to {out_file}")
-    """
