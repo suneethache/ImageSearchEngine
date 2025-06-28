@@ -44,9 +44,10 @@ Download and extract images into data/train/image/ before running segmentation
 ├── requirements.txt           # Contains all the necessary library installtions
 └── README.md
 ```
+Note that I have kept the train data and its corresponding masks, embeddings, index, and mapping files are in seperate folders under train dataset .
+The default folder paths in all the scripts follow this notion, If you are following another folder strucute then make sure to change the paths in the .py scripts.
 
-Note that I have kept the train data corresponding masks, embeddings, index, and mapping files in seperate folders under train dataset and all the scripts.
-All the scripts that need embeddings or any other file will find in train folder, so pleasedo the same or update the paths in image_seach.py file
+The repo contains sample_data folder which will give you insights of folder structure and sample images of all the categories.
 
 ---
 ## Running the project
